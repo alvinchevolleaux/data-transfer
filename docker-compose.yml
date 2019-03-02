@@ -1,0 +1,12 @@
+version: '3'
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # The following build arguments can be used to change UID and GID values to match the host user for POSIX based hosts
+        USER_ID: 1000
+        USER_GID: 1000
+    volumes:
+      - .:/usr/src/data-transfer:cached # The cached or delegated directives help performance issues on Macs
