@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6fd7d2961e816d6dd641a69ff2d81f7a",
+    "content-hash": "1fbfb43282e20fe8b972cb722c9bddac",
     "packages": [],
     "packages-dev": [
         {
@@ -60,6 +60,16 @@
                 "instantiate"
             ],
             "time": "2017-07-22T11:58:36+00:00"
+        },
+        {
+            "name": "json-schema/json-schema-test-suite",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/json-schema/JSON-Schema-Test-Suite",
+                "reference": "2.0.0"
+            },
+            "type": "library"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1482,7 +1492,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": []

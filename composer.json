@@ -10,10 +10,12 @@
         }
     ],
     "minimum-stability": "stable",
+    "prefer-stable": true,
     "bin": ["bin/schema"],
     "require": {},
     "require-dev": {
-        "phpunit/phpunit": "^8.0"
+        "phpunit/phpunit": "^8.0",
+        "json-schema/json-schema-test-suite": "2.0.0"
     },
     "autoload": {
         "psr-4": {
@@ -24,5 +26,19 @@
         "psr-4": {
             "DataTransferTest\\": "test/"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "json-schema/json-schema-test-suite",
+                "version": "2.0.0",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/json-schema/JSON-Schema-Test-Suite",
+                    "reference": "2.0.0"
+                }
+            }
+        }
+    ]
 }
