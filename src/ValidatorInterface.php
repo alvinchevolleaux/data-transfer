@@ -2,7 +2,7 @@
 
 namespace DataTransfer;
 
-use Type\DataTransfer\PrimitiveInterface;
+use DataTransfer\Primitive\PrimitiveInterface;
 
 /**
  * @author Alvin Chevolleaux <alvin@thehouseshop.com>

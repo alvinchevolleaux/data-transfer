@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Type\DataTransfer;
+namespace DataTransfer\Primitive;
 
 class NumberPrimitive implements PrimitiveInterface
 {
@@ -18,7 +18,30 @@ class NumberPrimitive implements PrimitiveInterface
      */
     private function __construct(string $value)
     {
+        if (!is_numeric($value)) {
+            throw new \InvalidArgumentException("Non numeric type");
+        }
+
         $this->value = $value;
+    }
+
+    public static function fromAny($number) : NumberPrimitive
+    {
+        if (is_int($number)) {
+            return self::fromInteger($number);
+        }
+
+        if (is_float($number)) {
+            return self::fromFloat($number);
+        }
+
+        if (is_string($number)) {
+            return new self($number);
+        }
+
+        throw new \InvalidArgumentException(
+            sprintf("Expecting integer, float or string. Got %s", gettype($number))
+        );
     }
 
     /**

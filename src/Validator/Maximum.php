@@ -2,9 +2,9 @@
 
 namespace DataTransfer\Validator;
 
+use DataTransfer\Primitive\NumberPrimitive;
+use DataTransfer\Primitive\PrimitiveInterface;
 use DataTransfer\ValidatorInterface;
-use Type\DataTransfer\NumberPrimitive;
-use Type\DataTransfer\PrimitiveInterface;
 
 /**
  * @author Alvin Chevolleaux <alvin@thehouseshop.com>

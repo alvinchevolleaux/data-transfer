@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Type\DataTransfer;
+namespace DataTransfer\Primitive;
 
 final class BooleanPrimitive implements PrimitiveInterface
 {

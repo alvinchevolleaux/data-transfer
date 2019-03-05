@@ -2,7 +2,9 @@
 
 namespace DataTransferTest\Validator;
 
+use DataTransfer\Validator\Maximum;
 use PHPUnit\Framework\TestCase;
+use DataTransfer\Primitive\NumberPrimitive;
 
 /**
  * @author Alvin Chevolleaux <alvin@thehouseshop.com>
@@ -12,14 +14,26 @@ use PHPUnit\Framework\TestCase;
  */
 class MaximumTest extends TestCase
 {
-    public function runSchemaTests()
+    public function testJsonSchemaSpec()
     {
-        $testData = file_get_contents(
+        $jsonSchemaData = file_get_contents(
             __DIR__ . '/../../vendor/json-schema/json-schema-test-suite/tests/draft7/maximum.json'
         );
 
-        $parsedTestData = json_decode($testData);
+        $parsedTestData = json_decode($jsonSchemaData, true);
+        $testdata = $parsedTestData[0];
 
+        $maximumValidator = Maximum::fromNumberPrimitive(
+            NumberPrimitive::fromAny($testdata['schema']['maximum'])
+        );
 
+        foreach ($testdata['tests'] as $test) {
+            try {
+                $number = NumberPrimitive::fromAny($test['data']);
+                $this->assertEquals($test['valid'], $maximumValidator->isValid($number));
+            } catch (\Exception $e) {
+                continue;
+            }
+        }
     }
 }
